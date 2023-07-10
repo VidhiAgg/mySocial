@@ -228,7 +228,7 @@ const handleInputChange =(event)=>{
               </label>
             </div>
             <div>
-              <button disabled={showSubmitButton} type="submit">Submit</button>
+              <button  type="submit">Submit</button>
             </div>
           </form>
         </DialogContent>

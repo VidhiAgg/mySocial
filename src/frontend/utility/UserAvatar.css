@@ -1,0 +1,12 @@
+.defaultAvatar{
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+  
+    border-radius: 50%;
+    padding: 2px;
+    text-align: center;
+    justify-content: center;
+    background-color: orange;
+}

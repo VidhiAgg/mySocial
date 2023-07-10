@@ -1,0 +1,16 @@
+.comment-container{
+    display: flex;
+}
+
+.image-container{
+    display: flex;
+}
+
+.image-container img{
+    width: 50px;
+    height: 50px;
+}
+.comment-content{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,35 @@
+.sort-panel{
+    display: flex;
+    border-bottom: 2px solid white;
+
+    justify-content: space-evenly;
+
+}
+.feed-header, .sort-btn, .txt-btn{
+    display: flex;
+}
+/* .feed-header{
+} */
+
+.sort-btn button, .txt-btn{
+   cursor: pointer;
+   background: none;
+   border: none;
+}
+.sort-modal{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 28%;
+    background-color: rgba(54, 53, 53, 0.555);
+    padding: 5px;
+    border-radius: 5px;
+   
+}
+.txt-btn{
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.txt-btn:hover{
+    background-color: rgba(12, 66, 129, 0.603);
+}

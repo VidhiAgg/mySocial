@@ -1,0 +1,21 @@
+.post-display-header{
+    display: flex;
+    border: 1px solid;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.subHeaer, .more-info,.content{
+    display: flex;
+}
+.post-userName, .post-id, .post-time{
+    display: inline-block;
+}
+
+.feedPost-btns{
+    display: flex;
+    justify-content: flex-start;
+}
+.feedPost-btns span{
+    margin: 10px;
+}

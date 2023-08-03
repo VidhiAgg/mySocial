@@ -3,7 +3,7 @@ import "./UserAvatar.css"
 const UserAvatar = ({userProp}) => {
     const avatar = userProp?.profilePhoto;
     const userIntials = (name)=>{
-        const splitName = name.split(" ");
+        const splitName = name?.split(" ");
         const getIntials = splitName.reduce((acc,curr, index)=>
             index === 0 || index === splitName.length-1  ? 
             acc += curr.charAt(0).toUpperCase() :acc

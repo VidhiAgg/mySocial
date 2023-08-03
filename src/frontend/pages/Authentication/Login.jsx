@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { projectConstants } from "../../utility/MySocialUtil";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const Login = () => {
   const { getUserLogin, loginUser } = useContext(AuthContext);
@@ -11,6 +12,7 @@ const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({
     username: "",
     password: "",
+    showPwd: false
   });
 
   const handleSubmitClick = (e) => {
@@ -52,12 +54,19 @@ const Login = () => {
                 })
               }
             />
-
-            <label htmlFor="password">Password*</label>
+<div className="passwor-tag">
+<label htmlFor="password">Password*</label>
+<i onClick={(e)=>
+  setLoginCredentials({...loginCredentials, showPwd: 
+  !loginCredentials.showPwd})}>
+    {loginCredentials.showPwd ? <Visibility/> : <VisibilityOff/>}
+  </i>
+</div>
+           
             <input
               required
               id="password"
-              type="password"
+              type= {loginCredentials.showPwd? "text" : "password"}
               value={loginCredentials.password}
               onChange={(e) =>
                 setLoginCredentials({

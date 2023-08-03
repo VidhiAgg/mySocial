@@ -1,18 +1,21 @@
 import React, { useContext, useState } from 'react'
-import "../../layout.css";
-import './style.css'
+import { PostContext} from '../../context/PostContext';
+import { addNewPost, getSortedPost } from '../../server/postServer';
+import { AuthContext } from '../../context/AuthContext';
+import { uploadImage } from '../../utility/UploadImage';
+import { projectConstants } from '../../utility/MySocialUtil';
+
 import Navigation from '../../components/Navigation';
 import SideNavigationBar from './SideNavigationBar';
-import { PostContext} from '../../context/PostContext';
 import Loader from '../../components/Loader/Loader';
 import HomeFeed from '../../components/HomeFeed';
 import SortPost from '../../components/SortPost';
-import { addNewPost, getSortedPost } from '../../server/postServer';
-import { AuthContext } from '../../context/AuthContext';
-import { projectConstants } from '../../utility/MySocialUtil';
 import SearchSideBar from '../../components/SearchSideBar';
 import UserAvatar from '../../utility/UserAvatar';
-import { uploadImage } from '../../utility/UploadImage';
+
+import "../../layout.css";
+import './style.css'
+
 const HomePage = () => {
   const {loader,activeSortType, users, postsDb} = 
   useContext(PostContext);

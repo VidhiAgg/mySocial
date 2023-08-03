@@ -13,11 +13,13 @@ console.log(user);
     e.stopPropagation();
     signOutUser();
   };
+
+
   return (
     <div className="side-nav-container">
       
       <ul className="nav-menu-list">
-        <li
+        <li 
           onClick={(e) => {
             e.stopPropagation();
             navigate("/");

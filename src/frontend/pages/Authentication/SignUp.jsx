@@ -33,7 +33,14 @@ const {postDispatch} = useContext(PostContext);
         isPasswordMatch : signUp.input.password === value ? true : false
        })
 
-    }else{
+    }
+    else if(name === "password"){
+      setSignUp({...signUp, input: {...signUp.input, [name]: value}, 
+        isPasswordMatch : signUp.input.confirmedPassword === value ? true : false
+       })
+
+    }
+    else{
       setSignUp({...signUp, input: {...signUp.input, [name]: value} })
     }
 
@@ -80,8 +87,16 @@ signInUser(signUp.input, postDispatch);
 />
 
 
-           
-            <label htmlFor="password">Password*</label>
+           <div className="passwor-tag">
+           <label htmlFor="password">Password* </label>
+            <i onClick={(e)=>{
+              setSignUp({...signUp,showPwd : 
+                {...signUp.showPwd, pwd : !signUp.showPwd.pwd}})
+            }}>{signUp.showPwd.pwd ? <Visibility/> :<VisibilityOff /> }</i>
+            
+            
+           </div>
+            
             <input
               required
               id="password"
@@ -90,11 +105,15 @@ signInUser(signUp.input, postDispatch);
               value={signUp.input.password}
               onChange={handleInputChange}
             />
+            <div className="passwor-tag">
+            <label htmlFor="confirmedPassword">Confirmed Password*</label>
             <i onClick={(e)=>{
-              setSignUp({...signUp,showPwd : {...signUp.showPwd, pwd : !signUp.showPwd.pwd}})
-            }}>{signUp.showPwd.pwd ? <Visibility/> :<VisibilityOff /> }</i>
+              setSignUp({...signUp,showPwd : {...signUp.showPwd, confirmedPwd : 
+                !signUp.showPwd.confirmedPwd}})
+            }}>{signUp.showPwd.confirmedPwd ? <Visibility/> :<VisibilityOff /> }</i>
             
-<label htmlFor="confirmedPassword">Confirmed Password*</label>
+            </div>
+
             <input
               required
               id="confirmedPassword"
@@ -104,12 +123,7 @@ signInUser(signUp.input, postDispatch);
               onChange={handleInputChange}
 
             />
-             <i onClick={(e)=>{
-              setSignUp({...signUp,showPwd : {...signUp.showPwd, confirmedPwd : 
-                !signUp.showPwd.confirmedPwd}})
-            }}>{signUp.showPwd.confirmedPwd ? <Visibility/> :<VisibilityOff /> }</i>
-            
-
+             
             <div className="page-btns">
               <button disabled ={!signUp.isPasswordMatch} type="submit" className="btn-primary">
                 Create an Account
@@ -125,7 +139,7 @@ signInUser(signUp.input, postDispatch);
           </p>
 }
           <p>
-            Already Have an account<Link to="/login">Login</Link>
+            Already Have an account? <Link to="/login">Login</Link>
           </p>
         </div>
       </div>
